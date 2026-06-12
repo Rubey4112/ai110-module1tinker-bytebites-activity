@@ -1,0 +1,24 @@
+classDiagram
+    class Customer {
+        +String name
+    }
+
+    class FoodItem {
+        +String name
+        +Float price
+        +String category
+        +Float rating
+    }
+
+    class Collection {
+        +String name
+    }
+
+    class Transaction {
+        +Float totalCost
+    }
+
+    Customer "1" --> "0..1" Transaction : currentTransaction
+    Customer "1" --> "0..*" Transaction : pastTransactions
+    Transaction "1" o-- "1..*" FoodItem : items
+    Collection "1" o-- "0..*" FoodItem : items
