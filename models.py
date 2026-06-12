@@ -29,11 +29,11 @@ class FoodItem:
 
     # Updates the item's price.
     def setPrice(self, price):
-        pass
+        self._price = price
 
     # Updates the item's popularity rating.
     def setRating(self, rating):
-        pass
+        self._rating = rating
 
 
 # Manages the full collection of available food items and supports browsing.
@@ -52,15 +52,15 @@ class Catalog:
 
     # Adds a FoodItem to the catalog's item list.
     def addItem(self, item):
-        pass
+        self._items.append(item)
 
     # Removes a FoodItem from the catalog's item list.
     def removeItem(self, item):
-        pass
+        self._items.remove(item)
 
     # Returns only the items whose category matches the given string.
     def filterByCategory(self, category):
-        pass
+        return [item for item in self._items if item.getCategory() == category]
 
 
 # Represents a single purchase session grouping one or more food items.
@@ -79,11 +79,13 @@ class Transaction:
 
     # Adds a FoodItem and increments total_cost by the item's price.
     def addItem(self, item):
-        pass
+        self._items.append(item)
+        self._total_cost += item.getPrice()
 
     # Removes a FoodItem and decrements total_cost by the item's price.
     def removeItem(self, item):
-        pass
+        self._items.remove(item)
+        self._total_cost -= item.getPrice()
 
 
 # Represents a registered user who can browse items and place orders.
@@ -108,4 +110,6 @@ class Customer:
     # Completes the current_transaction, moves it to past_transactions, and clears current_transaction.
     # To build an order, call Transaction.addItem() directly on the current_transaction before calling order().
     def order(self):
-        pass
+        if self._current_transaction:
+            self._past_transactions.append(self._current_transaction)
+            self._current_transaction = None
