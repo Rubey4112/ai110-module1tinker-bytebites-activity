@@ -29,3 +29,50 @@ def test_filter_drinks_only_returns_liquid_items():
     drinks = catalog.filterByCategory("Drinks")
     assert len(drinks) == 2
     assert all(item.getCategory() == "Drinks" for item in drinks)
+
+
+# --- Customer tests ---
+
+def test_customer_name():
+    customer = Customer("Alice")
+    assert customer.getName() == "Alice"
+
+
+def test_new_customer_has_no_current_transaction():
+    customer = Customer("Alice")
+    assert customer.getCurrentTransaction() is None
+
+
+def test_new_customer_has_no_past_transactions():
+    customer = Customer("Alice")
+    assert customer.getPastTransactions() == []
+
+
+def test_order_moves_transaction_to_past():
+    customer = Customer("Alice")
+    transaction = Transaction()
+    customer._current_transaction = transaction
+    customer.order()
+    assert transaction in customer.getPastTransactions()
+
+
+def test_order_clears_current_transaction():
+    customer = Customer("Alice")
+    customer._current_transaction = Transaction()
+    customer.order()
+    assert customer.getCurrentTransaction() is None
+
+
+def test_order_accumulates_multiple_past_transactions():
+    customer = Customer("Alice")
+    for _ in range(3):
+        customer._current_transaction = Transaction()
+        customer.order()
+    assert len(customer.getPastTransactions()) == 3
+
+
+def test_order_does_nothing_when_no_current_transaction():
+    customer = Customer("Alice")
+    customer.order()
+    assert customer.getPastTransactions() == []
+    assert customer.getCurrentTransaction() is None

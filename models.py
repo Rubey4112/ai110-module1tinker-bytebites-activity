@@ -92,7 +92,7 @@ class Transaction:
 class Customer:
     def __init__(self, name):
         self._name = name
-        self._current_transaction = None
+        self._current_transaction: "Transaction | None" = None
         self._past_transactions = []
 
     # Returns the customer's name.
