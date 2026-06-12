@@ -1,5 +1,5 @@
 """
-Designed four classes: Customer, FoodItem, Collection, Transaction.
+Designed four classes: Customer, FoodItem, Catalog, Transaction.
 """
 
 
@@ -29,7 +29,7 @@ class FoodItem:
         pass
 
 
-class Collection:
+class Catalog:
     def __init__(self, name):
         self._name = name
         self._items = []
@@ -44,6 +44,9 @@ class Collection:
         pass
 
     def removeItem(self, item):
+        pass
+
+    def filterByCategory(self, category):
         pass
 
 

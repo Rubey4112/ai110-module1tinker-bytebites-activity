@@ -22,13 +22,14 @@ classDiagram
         +setRating()
     }
 
-    class Collection {
+    class Catalog {
         -String _name
         -List~FoodItem~ _items
         +getName()
         +getItems()
         +addItem()
         +removeItem()
+        +filterByCategory()
     }
 
     class Transaction {
@@ -43,4 +44,4 @@ classDiagram
     Customer "1" --> "0..1" Transaction : _currentTransaction
     Customer "1" --> "0..*" Transaction : _pastTransactions
     Transaction "1" o-- "1..*" FoodItem : _items
-    Collection "1" o-- "0..*" FoodItem : _items
+    Catalog "1" *-- "0..*" FoodItem : _items

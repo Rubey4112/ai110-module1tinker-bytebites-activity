@@ -20,11 +20,12 @@ Finally, when a user picks items, we need to group them into a single transactio
     - Price
     - Category
     - Rating
-- Collection
+- Catalog
     - Name
     - List of Food Item
     - addItem
     - removeItem
+    - filterByCategory
 - Transaction
     - List of Food Item
     - Total Cost
