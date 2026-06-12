@@ -11,16 +11,16 @@ class FoodItem:
         self._rating = rating
 
     def getName(self):
-        pass
+        return self._name
 
     def getPrice(self):
-        pass
+        return self._price
 
     def getCategory(self):
-        pass
+        return self._category
 
     def getRating(self):
-        pass
+        return self._rating
 
     def setPrice(self, price):
         pass
@@ -35,10 +35,10 @@ class Collection:
         self._items = []
 
     def getName(self):
-        pass
+        return self._name
 
     def getItems(self):
-        pass
+        return list(self._items)
 
     def addItem(self, item):
         pass
@@ -53,10 +53,10 @@ class Transaction:
         self._total_cost = 0
 
     def getItems(self):
-        pass
+        return list(self._items)
 
     def getTotalCost(self):
-        pass
+        return self._total_cost
 
     def addItem(self, item):
         pass
@@ -72,13 +72,13 @@ class Customer:
         self._past_transactions = []
 
     def getName(self):
-        pass
+        return self._name
 
     def getCurrentTransaction(self):
-        pass
+        return self._current_transaction
 
     def getPastTransactions(self):
-        pass
+        return list(self._past_transactions)
 
     def order(self):
         pass
