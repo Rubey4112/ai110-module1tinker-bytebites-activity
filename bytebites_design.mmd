@@ -1,35 +1,46 @@
 classDiagram
     class Customer {
-        +String name
-        +Transaction currentTransaction
-        +List~Transaction~ pastTransactions
-        +getPastTransaction()
+        -String _name
+        -Transaction _currentTransaction
+        -List~Transaction~ _pastTransactions
+        +getName()
+        +getCurrentTransaction()
+        +getPastTransactions()
         +order()
     }
 
     class FoodItem {
-        +String name
-        +Float price
-        +String category
-        +Float rating
+        -String _name
+        -Float _price
+        -String _category
+        -Float _rating
+        +getName()
+        +getPrice()
+        +getCategory()
+        +getRating()
+        +setPrice()
+        +setRating()
     }
 
     class Collection {
-        +String name
-        +List~FoodItem~ items
+        -String _name
+        -List~FoodItem~ _items
+        +getName()
+        +getItems()
         +addItem()
         +removeItem()
     }
 
     class Transaction {
-        +List~FoodItem~ items
-        +Float totalCost
+        -List~FoodItem~ _items
+        -Float _totalCost
+        +getItems()
+        +getTotalCost()
         +addItem()
         +removeItem()
-        +getTotalCost()
     }
 
-    Customer "1" --> "0..1" Transaction : currentTransaction
-    Customer "1" --> "0..*" Transaction : pastTransactions
-    Transaction "1" o-- "1..*" FoodItem : items
-    Collection "1" o-- "0..*" FoodItem : items
+    Customer "1" --> "0..1" Transaction : _currentTransaction
+    Customer "1" --> "0..*" Transaction : _pastTransactions
+    Transaction "1" o-- "1..*" FoodItem : _items
+    Collection "1" o-- "0..*" FoodItem : _items

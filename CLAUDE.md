@@ -3,3 +3,7 @@ description: A focused agent for generating and refining ByteBites UML diagrams 
 tools: ["read", "edit"]
 
 Stay within the set of classes provided in the spec, avoid unnecessary complexity, and follow the mermaid uml class diagram format.
+
+Specification:
+@bytebites_spec.md
+@bytebites_design.mmd
