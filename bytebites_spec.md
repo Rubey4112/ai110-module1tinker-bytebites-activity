@@ -13,6 +13,8 @@ Finally, when a user picks items, we need to group them into a single transactio
     - Name
     - Current Transaction
     - List of Past Transaction
+    - getPastTransaction
+    - order
 - Food Item
     - Name
     - Price
@@ -21,6 +23,11 @@ Finally, when a user picks items, we need to group them into a single transactio
 - Collection
     - Name
     - List of Food Item
+    - addItem
+    - removeItem
 - Transaction
     - List of Food Item
     - Total Cost
+    - addItem
+    - removeItem
+    - getTotalCost

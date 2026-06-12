@@ -1,6 +1,10 @@
 classDiagram
     class Customer {
         +String name
+        +Transaction currentTransaction
+        +List~Transaction~ pastTransactions
+        +getPastTransaction()
+        +order()
     }
 
     class FoodItem {
@@ -12,10 +16,17 @@ classDiagram
 
     class Collection {
         +String name
+        +List~FoodItem~ items
+        +addItem()
+        +removeItem()
     }
 
     class Transaction {
+        +List~FoodItem~ items
         +Float totalCost
+        +addItem()
+        +removeItem()
+        +getTotalCost()
     }
 
     Customer "1" --> "0..1" Transaction : currentTransaction
